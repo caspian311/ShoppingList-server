@@ -1,6 +1,7 @@
 var DbHelper = function() {
    var db = function() {
       var dbName = 'shoppingList';
+
       if (process.env.NODE_ENV) {
         dbName = dbName + '-' + process.env.NODE_ENV;
       }
@@ -8,7 +9,11 @@ var DbHelper = function() {
    };
 
    this.getConnectionString = function() {
-      return 'mongodb://localhost:27017/' + db();
+      if (process.env.MONGOHQ_URL) {
+         return process.env.MONGOHQ_URL;
+      } else {
+         return 'mongodb://localhost:27017/' + db();
+      }
    };
 }
 

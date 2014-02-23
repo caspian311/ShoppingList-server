@@ -13,7 +13,8 @@
    app.use(express.static(path.join(__dirname, 'public')))
    app.use(shoppingItems)
 
-   http.createServer(app).listen(3000, function(){
-     console.log("Express server listening on port 3000")
+   var port = Number(process.env.PORT || 3000)
+   http.createServer(app).listen(port, function(){
+     console.log('Express server listening on port ' + port)
    });
 })();

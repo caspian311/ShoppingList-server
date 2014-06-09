@@ -33,19 +33,6 @@ var ShoppingItems = function() {
          response.end();
       });
    };
-
-   this.put = function(request, response) {
-      var id = request.params.id;
-      var item = {
-         value: request.body.value,
-         checked: request.body.checked == '1'
-      };
-
-      shoppingItemsDb.updateItem(id, item, function(docs) {
-         response.status(201);
-         response.end();
-      });
-   };
 }
 
 module.exports = new ShoppingItems();

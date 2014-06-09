@@ -6,18 +6,6 @@ var ShoppingItems = function() {
       return db.collection('shoppingItems');
    }
 
-   this.updateItem = function(id, item, callback) {
-      base.inConnection(function(db) {
-         collection(db).update({ '_id': ObjectID(id) }, item, function(err) {
-            if (err) {
-               throw err;
-            }
-
-            callback();
-         });
-      });
-   };
-
    this.addItem = function(item, callback) {
       base.inConnection(function(db) {
          collection(db).insert(item, function(err, addedItems) {

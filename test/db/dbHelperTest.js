@@ -30,11 +30,11 @@ describe('dbHelper', function() {
 
       describe('when in production', function() {
          afterEach(function() {
-            process.env['MONGOHQ_URL'] = null;
+            process.env.MONGOHQ_URL = '';
          });
 
          it('should return node environment suffix on db name', function() {
-            process.env['MONGOHQ_URL'] = 'im a little teapot';
+            process.env.MONGOHQ_URL = 'im a little teapot';
 
             var conn = dbHelper.getConnectionString();
 

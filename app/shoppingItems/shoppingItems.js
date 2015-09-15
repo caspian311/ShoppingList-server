@@ -1,4 +1,4 @@
-var shoppingItemsDb = require('../db/shoppingItemsDb')
+var shoppingItemsDb = require('../db/shoppingItemsDb');
 
 var ShoppingItems = function() {
    this.index = function(request, response) {
